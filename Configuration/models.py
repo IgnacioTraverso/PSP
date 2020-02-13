@@ -13,7 +13,7 @@ class Owner(models.Model):
 
 class Team(models.Model):
     Name=models.CharField(max_length=30)
-    ID_Owner=models.ForeignKey(Owner, on_delete=models.SET_NULL, null=True) #many to one
+    ID_Owner=models.ForeignKey(Owner, on_delete=models.SET_NULL, null=True) 
 
     def __str__(self):
         cadena= "{0}"
@@ -26,7 +26,7 @@ class Player(models.Model):
     Nick=models.CharField(max_length=30)
     Age=models.CharField(max_length=2)
     Photo=models.ImageField(upload_to='fotos', blank=True, null=True)
-    ID_Team=models.ForeignKey(Team, on_delete=models.SET_NULL, null=True) #many to one
+    ID_Team=models.ForeignKey(Team, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         cadena= "{0} {1} {2} {3}"
@@ -36,8 +36,8 @@ class Player(models.Model):
 class Tournament(models.Model):
     Name=models.CharField(max_length=30)
     Pricepool=models.CharField(max_length=10)
-    Winner=models.ForeignKey(Team, on_delete=models.SET_NULL, null=True)  #many to one
-    MVP=models.ForeignKey(Player, on_delete=models.SET_NULL, null=True) #many to one
+    Winner=models.ForeignKey(Team, on_delete=models.SET_NULL, null=True)  
+    MVP=models.ForeignKey(Player, on_delete=models.SET_NULL, null=True) 
 
     def __str__(self):
         return self.Name
