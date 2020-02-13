@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>{% block titulo  %}Inicio{% endblock titulo %}</title>
+<meta charset="utf-8">
+{% block extracss %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+body {
+    color: #566787;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 13px;
+      background-repeat: no-repeat;
+      background-attachment: fixed; 
+      background-size: 100% 100%;
+      height: 500px;
+
+}
+.table-wrapper {
+    background: #fff;
+    padding: 20px 25px;
+    margin: 30px 0;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.table-title {        
+    padding-bottom: 15px;
+    background: #435d7d;
+    color: #fff;
+    padding: 16px 30px;
+    margin: -20px -25px 10px;
+    border-radius: 3px 3px 0 0;
+    display: flex;
+       justify-content: center;
+       align-items: center;
+}
+ h2 {
+    margin: 5px 0 0;
+    font-size: 24px;
+}
+.foot {
+    position: fixed;
+    bottom: 0;
+    color: black;
+}
+
+  </style>
+  {% endblock extracss %}
+  
+</head>
+<body>
+    {% block body  %}
+<div class="container">
+	 <div class="table-wrapper">
+		  <div class="table-title">
+		    <div class="row">
+			    <div class="col-6">
+					<h2>Bienvenido {{user.username}}</h2>
+				</div>
+			</div>
+        </div>
+        
+        <a href="{% url 'Configuration:listar_player' %}"><input class="btn btn-success  btn-lg btn-block" type="submit" value="Players"></a>
+        </br>
+        <a href="{% url 'Configuration:listar_tournament' %}"><input class="btn btn-success  btn-lg btn-block" type="submit" value="Tournament"></a>
+        </br>
+        <a href="{% url 'Configuration:listar_team' %}"><input class="btn btn-success  btn-lg btn-block" type="submit" value="Team"></a>
+        </br>
+        <a href="{% url 'Configuration:listar_tournamentteam' %}"><input class="btn btn-success  btn-lg btn-block" type="submit" value="Tournament-Team"></a>
+        </br>
+        <a href="{% url 'Configuration:listar_owner' %}"><input class="btn btn-success  btn-lg btn-block" type="submit" value="Owner"></a>
+        </br>
+		<a class="nav-link" href="{% url 'logout' %}"><button type="submit" class="btn btn-primary">Logout</button></a>
+
+</div>
+
+<footer class="foot">
+  <h3>By: Ignacio Traverso Baturone</h3>
+</footer>
+</div>
+{% endblock body %}
+
+{% block extrajs %}
+{% endblock extrajs %}
+</body>
+</html>

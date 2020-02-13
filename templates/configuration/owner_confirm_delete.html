@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% block titulo  %}Eliminacion de Owner{% endblock titulo %}
+    {% block body %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div style=" text-align: center; padding: 70px 0">
+            <h2>¿Quieres eliminar el registro {{owner.Name}} {{owner.FName}}?</h2>
+            </br>
+            <button type="submit" class="btn btn-danger"> Eliminar </button>
+            <a href="{% url 'Configuration:listar_owner' %}"><button type="button" class="btn btn-info">Cancelar</button></a>
+        </div>
+    </form>
+    {% endblock body %}
+

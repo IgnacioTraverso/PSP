@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% block titulo  %}Eliminacion de relacion entre tournament y team{% endblock titulo %}
+    {% block body %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div style=" text-align: center; padding: 70px 0">
+        <h2>¿Quieres eliminar el registro de la relacion entre {{tournamentteam.ID_Tournament}} y {{tournamentteam.ID_Team}}?</h2>
+    </br>
+        <button type="submit" class="btn btn-danger"> Eliminar </button>
+        <a href="{% url 'Configuration:listar_tournamentteam' %}"><button type="button" class="btn btn-info">Cancelar</button></a>
+    </div>
+    </form>
+    {% endblock body %}
+
